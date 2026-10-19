@@ -94,6 +94,7 @@ const List<_HelpEntry> _kDesktopEntries = <_HelpEntry>[
     '键盘',
     '1=画笔 2=荧光笔 3=橡皮 4=直线 5=箭头 6=矩形 7=椭圆 8=文字',
   ),
+  _HelpEntry(Icons.mail_outline, '反馈', '工具栏信封图标：可发邮件或复制邮箱地址'),
 ];
 
 const List<_HelpEntry> _kTouchEntries = <_HelpEntry>[
@@ -109,6 +110,7 @@ const List<_HelpEntry> _kTouchEntries = <_HelpEntry>[
     '导出',
     '点“导出 PNG”，默认存到相册的“涂想”文件夹；保存后可分享或复制路径',
   ),
+  _HelpEntry(Icons.mail_outline, '反馈', '工具栏信封图标：可发邮件或复制邮箱地址'),
 ];
 
 /// The collapsed state: a small circular "?" chip that opens the card.

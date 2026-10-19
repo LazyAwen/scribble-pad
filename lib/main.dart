@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'src/color_picker.dart';
+import 'src/feedback.dart';
 import 'src/help_panel.dart';
 import 'src/model.dart';
 import 'src/painter.dart';
@@ -1128,6 +1129,7 @@ class _BoardPageState extends State<BoardPage> with TickerProviderStateMixin {
                             setState(() => _toolbarCollapsed = !_toolbarCollapsed),
                         onPickColor: _pickColor,
                         onChooseSaveDir: _chooseSaveDir,
+                        onFeedback: () => showFeedbackSheet(context),
                         onTool: (t) => setState(() {
                           _tool = t;
                           _draft = null;

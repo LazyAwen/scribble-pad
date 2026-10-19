@@ -29,6 +29,7 @@ class ToolSection extends StatelessWidget {
     required this.onImage,
     required this.onPickColor,
     required this.onChooseSaveDir,
+    required this.onFeedback,
     required this.onToggleCollapse,
   });
 
@@ -49,6 +50,7 @@ class ToolSection extends StatelessWidget {
   final VoidCallback onImage;
   final VoidCallback onPickColor;
   final VoidCallback onChooseSaveDir;
+  final VoidCallback onFeedback;
   final VoidCallback onToggleCollapse;
 
   @override
@@ -175,6 +177,11 @@ class ToolSection extends StatelessWidget {
                 tooltip: '清空画板',
                 icon: const Icon(Icons.delete_outline),
                 onPressed: onClear,
+              ),
+              IconButton(
+                tooltip: '反馈意见（发邮件）',
+                icon: const Icon(Icons.mail_outline),
+                onPressed: onFeedback,
               ),
               IconButton(
                 tooltip: '导出图片的保存位置',

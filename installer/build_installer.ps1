@@ -21,7 +21,7 @@ $RepoRoot  = Split-Path -Parent $ScriptDir
 Set-Location $RepoRoot
 Write-Host "Repo root : $RepoRoot"
 
-# --- version from pubspec.yaml  (version: 2.0.0+2  ->  2.0.0) ---------------
+# --- version from pubspec.yaml  (version: <ver>+<build>  ->  <ver>) ----------
 $Pubspec = Join-Path $RepoRoot 'pubspec.yaml'
 if (-not (Test-Path $Pubspec)) {
     Write-Host ""

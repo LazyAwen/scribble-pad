@@ -1,9 +1,12 @@
 // Unit tests for the drawing model: hit testing, bounds, camera math, and a
 // toolbar smoke test. The geometry tests catch regressions without driving UI.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:doodle/src/feedback.dart';
 import 'package:doodle/src/model.dart';
 import 'package:doodle/src/toolbar.dart';
 
@@ -192,6 +195,7 @@ void main() {
             onImage: () {},
             onPickColor: () {},
             onChooseSaveDir: () {},
+            onFeedback: () {},
             onToggleCollapse: () {},
           ),
         ),
@@ -205,6 +209,30 @@ void main() {
       await tester.tap(find.text('箭头'));
       await tester.pump();
       expect(picked, Tool.arrow);
+    });
+  });
+
+  group('feedback', () {
+    test('mailto uri targets the feedback inbox', () {
+      final uri = feedbackUri();
+      expect(uri.scheme, 'mailto');
+      expect(uri.path, kFeedbackEmail);
+      expect(uri.queryParameters['subject'], contains('涂想 Doodle'));
+      expect(uri.queryParameters['body'], contains('版本'));
+    });
+
+    testWidgets('sheet shows the address and copies it', (tester) async {
+      await tester.pumpWidget(const MaterialApp(home: Scaffold(body: SizedBox())));
+      // Do NOT await the returned future: it only completes when the sheet is
+      // dismissed, so awaiting here would deadlock the test.
+      unawaited(showFeedbackSheet(tester.element(find.byType(SizedBox))));
+      await tester.pumpAndSettle();
+      expect(find.text(kFeedbackEmail), findsOneWidget);
+      expect(find.text('写邮件给我'), findsOneWidget);
+
+      await tester.tap(find.text('关闭'));
+      await tester.pumpAndSettle();
+      expect(find.text(kFeedbackEmail), findsNothing);
     });
   });
 }

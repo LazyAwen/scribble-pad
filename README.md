@@ -4,6 +4,9 @@
 
 所有内容只存在你的设备上：没有账号，没有遥测，Android 版连网络权限都没申请。
 
+> **意见建议请发邮件到 `lazyawen@163.com`**（软件里点工具栏的信封图标也能直接写邮件）。
+> 这个软件完全离线，没法自动上报，所以你的邮件就是唯一的反馈渠道 —— 真的会看。
+
 **下载地址**：<https://github.com/LazyAwen/tuxiang-doodle/releases>
 
 - **Windows**：下载涂想 Doodle 安装包 exe，双击安装即可，可选安装路径和桌面快捷方式。
@@ -28,6 +31,17 @@
 - **工具栏**：可以整个收起，再点左下角「展开工具栏」回来
 - **快捷键**：`Ctrl+Z` 撤销，`Ctrl+Shift+Z` / `Ctrl+Y` 重做，`Ctrl+S` 导出，
   `Ctrl+/-` 缩放，`Ctrl+0` 回到 100%，`F` 适应内容，`1`–`8` 切换工具
+
+## 反馈
+
+用起来不顺手、想要什么功能、或者撞见 bug，都欢迎写信到 **`lazyawen@163.com`**。
+
+- **软件内**：工具栏右侧的信封图标 → 「写邮件给我」（自动填好主题和排查模板），
+  或者一键「复制邮箱」。手机上没有配邮件应用的，复制地址用网页邮箱发也行。
+- **GitHub**：也可以直接开 [issue](https://github.com/LazyAwen/tuxiang-doodle/issues)。
+
+写信时如果能带上这些，会快很多：什么设备（Windows / 安卓机型）、版本号、
+怎么操作才会出问题、期望的效果。可以的话附一张截图。
 
 ## 从源码构建
 
@@ -97,6 +111,10 @@ describe them. Draw with a mouse, a trackpad, a stylus, or a finger — then exp
 Everything stays on the device: no accounts, no telemetry, and the Android build
 requests no network permission.
 
+> **Feedback: email `lazyawen@163.com`** — or click the envelope button in the toolbar,
+> which opens a pre-filled mail. The app is fully offline and cannot report anything
+> automatically, so email is the only feedback channel — and it really is read.
+
 **Download the release:** <https://github.com/LazyAwen/tuxiang-doodle/releases>
 
 - Windows: run the Inno Setup installer (choose an install directory and optionally a
@@ -123,6 +141,16 @@ requests no network permission.
 - **Collapsible toolbar** via the arrow button
 - **Shortcuts:** `Ctrl+Z` undo, `Ctrl+Shift+Z` / `Ctrl+Y` redo, `Ctrl+S` export,
   `Ctrl+/-` zoom, `Ctrl+0` reset zoom, `F` fit content, `1`–`8` pick a tool
+
+### Feedback
+
+Send mail to **`lazyawen@163.com`** — bug reports, feature requests, and complaints
+all welcome. Inside the app, the envelope icon in the toolbar opens a pre-filled
+`mailto:` or copies the address to the clipboard. GitHub
+[issues](https://github.com/LazyAwen/tuxiang-doodle/issues) work too.
+
+Helpful details: your device (Windows version / Android model), the app version,
+what you did, what you expected. A screenshot is even better.
 
 ### Building from source
 

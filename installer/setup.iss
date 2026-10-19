@@ -1,8 +1,9 @@
 ; =============================================================================
 ;  涂想 Doodle  —  Inno Setup 6 installer script
 ;  FULLY OFFLINE: no download pages, no update check, no online code.
-;  Compile:  iscc /DAppVer=2.0.0 installer\setup.iss   (from the repo root)
+;  Compile:  iscc /DAppVer=<version> installer\setup.iss   (from the repo root)
 ;            or just run:  powershell -File installer\build_installer.ps1
+;            (build_installer.ps1 reads the version from pubspec.yaml itself)
 ; =============================================================================
 
 ; -----------------------------------------------------------------------------
