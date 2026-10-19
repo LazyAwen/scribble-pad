@@ -56,3 +56,6 @@ app.*.map.json
 # Generated plugin symlinks / CMake ephemeral files
 /windows/flutter/ephemeral/
 /android/local.properties
+
+# Built installer binaries (the .iss source is committed, the exe is not)
+/installer/output/

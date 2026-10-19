@@ -15,7 +15,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.lazyawen.scribble_pad"
+    namespace = "com.lazyawen.doodle"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.lazyawen.scribble_pad"
+        applicationId = "com.lazyawen.doodle"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -48,6 +48,12 @@ android {
                 keyPassword = keystoreProperties["keyPassword"] as String?
             }
         }
+    }
+
+    dependencies {
+        // Writing into a folder the user picked with the system folder picker
+        // (SAF) needs DocumentFile.
+        implementation("androidx.documentfile:documentfile:1.1.0")
     }
 
     buildTypes {

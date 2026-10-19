@@ -4,8 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:scribble_pad/src/model.dart';
-import 'package:scribble_pad/src/toolbar.dart';
+import 'package:doodle/src/model.dart';
+import 'package:doodle/src/toolbar.dart';
 
 void main() {
   group('Camera', () {
@@ -190,6 +190,9 @@ void main() {
             onClear: () {},
             onSave: () {},
             onImage: () {},
+            onPickColor: () {},
+            onChooseSaveDir: () {},
+            onToggleCollapse: () {},
           ),
         ),
       ));

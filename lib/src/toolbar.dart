@@ -27,6 +27,9 @@ class ToolSection extends StatelessWidget {
     required this.onClear,
     required this.onSave,
     required this.onImage,
+    required this.onPickColor,
+    required this.onChooseSaveDir,
+    required this.onToggleCollapse,
   });
 
   final Tool tool;
@@ -44,9 +47,13 @@ class ToolSection extends StatelessWidget {
   final VoidCallback onClear;
   final VoidCallback onSave;
   final VoidCallback onImage;
+  final VoidCallback onPickColor;
+  final VoidCallback onChooseSaveDir;
+  final VoidCallback onToggleCollapse;
 
   @override
   Widget build(BuildContext context) {
+    final custom = !kPalette.contains(color);
     return Card(
       elevation: 6,
       margin: const EdgeInsets.symmetric(horizontal: 12),
@@ -121,6 +128,13 @@ class ToolSection extends StatelessWidget {
               const _Divider(),
               for (final c in kPalette)
                 _Swatch(color: c, selected: color == c, onTap: () => onColor(c)),
+              _Swatch(
+                color: color,
+                selected: custom,
+                custom: true,
+                onTap: onPickColor,
+                tooltip: '自定义颜色',
+              ),
               const _Divider(),
               SizedBox(
                 width: 132,
@@ -161,6 +175,16 @@ class ToolSection extends StatelessWidget {
                 tooltip: '清空画板',
                 icon: const Icon(Icons.delete_outline),
                 onPressed: onClear,
+              ),
+              IconButton(
+                tooltip: '导出图片的保存位置',
+                icon: const Icon(Icons.folder_open_outlined),
+                onPressed: onChooseSaveDir,
+              ),
+              IconButton(
+                tooltip: '收起工具栏',
+                icon: const Icon(Icons.keyboard_arrow_down),
+                onPressed: onToggleCollapse,
               ),
               FilledButton.icon(
                 onPressed: onSave,
@@ -225,17 +249,21 @@ class _Swatch extends StatelessWidget {
     required this.color,
     required this.selected,
     required this.onTap,
+    this.tooltip,
+    this.custom = false,
   });
 
   final Color color;
   final bool selected;
   final VoidCallback onTap;
+  final String? tooltip;
+  final bool custom;
 
   @override
   Widget build(BuildContext context) {
     final hex = (color.toARGB32() & 0xFFFFFF).toRadixString(16).padLeft(6, '0');
     return Tooltip(
-      message: '#$hex',
+      message: tooltip ?? '#$hex',
       child: GestureDetector(
         onTap: onTap,
         child: AnimatedContainer(
@@ -244,19 +272,24 @@ class _Swatch extends StatelessWidget {
           height: 26,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: color,
+            color: custom ? null : color,
+            gradient: custom
+                ? SweepGradient(colors: <Color>[color, color.withValues(alpha: 0.4), color])
+                : null,
             border: Border.all(
               color: selected ? Theme.of(context).colorScheme.primary : Colors.black12,
               width: selected ? 2.5 : 1,
             ),
           ),
-          child: selected
-              ? Icon(
-                  Icons.check,
-                  size: 15,
-                  color: color.computeLuminance() > 0.5 ? Colors.black : Colors.white,
-                )
-              : null,
+          child: custom
+              ? const Icon(Icons.colorize, size: 14, color: Colors.black54)
+              : selected
+                  ? Icon(
+                      Icons.check,
+                      size: 15,
+                      color: color.computeLuminance() > 0.5 ? Colors.black : Colors.white,
+                    )
+                  : null,
         ),
       ),
     );

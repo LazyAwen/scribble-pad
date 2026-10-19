@@ -108,8 +108,22 @@ class Stroke extends Item {
     return cx * cx + cy * cy;
   }
 
+  ui.Path? _pathCache;
+  int? _pathCacheCount;
+
   /// Catmull-Rom -> cubic bezier: smooth ink without resampling the raw points.
+  /// The result is memoised: a committed stroke is immutable, and rebuilding
+  /// its path every frame was the main cost with a busy board.
   Path buildPath() {
+    final cached = _pathCache;
+    if (cached != null && _pathCacheCount == points.length) return cached;
+    final built = _computePath();
+    _pathCache = built;
+    _pathCacheCount = points.length;
+    return built;
+  }
+
+  Path _computePath() {
     final path = Path();
     final n = points.length ~/ 2;
     if (n < 2) return path;
