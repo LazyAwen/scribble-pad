@@ -7,6 +7,9 @@
 > **意见建议请发邮件到 `lazyawen@163.com`**（软件里点工具栏的信封图标也能直接写邮件）。
 > 这个软件完全离线，没法自动上报，所以你的邮件就是唯一的反馈渠道 —— 真的会看。
 
+> **版权声明**：本仓库**不是**开源项目，没有授予任何人使用许可，代码公开只是为了自己查看和备份。
+> 未经作者书面同意，请勿修改后重新发布，也请勿把代码或安装包用到别处。详见下文「[版权与使用限制](#版权与使用限制)」。
+
 **下载地址**：<https://github.com/LazyAwen/tuxiang-doodle/releases>
 
 - **Windows**：下载涂想 Doodle 安装包 exe，双击安装即可，可选安装路径和桌面快捷方式。
@@ -43,13 +46,41 @@
 写信时如果能带上这些，会快很多：什么设备（Windows / 安卓机型）、版本号、
 怎么操作才会出问题、期望的效果。可以的话附一张截图。
 
+## 版权与使用限制
+
+Copyright © 2026 LazyAwen. 保留所有权利（All rights reserved）。
+
+**这个仓库没有采用开源许可证。** 代码放在 GitHub 上是为了备份和方便自己查看，
+本身就构成公开发表，但**不构成**任何使用授权 —— 没有 LICENSE 文件时，默认就是
+「保留所有权利」，这是著作权法的默认状态，不是作者在苛刻。
+
+具体来说，**未经作者书面许可，请不要**：
+
+- 复制、修改本项目的源码后重新发布（俗称「二改」）
+- 把本项目的代码、图标、文档，整段或部分地用到你自己的项目里
+- 重新打包分发安装包、APK 或任何衍生版本
+- 用于商业用途
+
+**可以**自由做的：
+
+- 下载安装、自己使用，装在自己的多台设备上
+- 为了自己使用而修改源码（改了不用发出来，就没人管你）
+- 在文章或视频里介绍这个软件，附上本仓库链接
+- 引用少量代码片段做技术讨论，注明出处
+
+发现自己被二改、被盗用时，可以把情况发到 `lazyawen@163.com`。
+
+> 一个诚实的补充：GitHub 的服务条款允许任何人对公开仓库点 Fork，这一点作者无法关闭，
+> 也没有 LICENSE 能阻止。所以这份声明的作用是**明确态度、保留追究的权利**，
+> 而不是技术上让人 fork 不了。真要完全杜绝，只能把仓库改成私有。
+
 ## 从源码构建
 
 需要 Flutter 3.47+（Dart 3.13+）；打 APK 还需要 Android SDK（含 Android 11+ 即可）。
 
 ```bash
 flutter pub get
-flutter test          # 15 个单元测试
+flutter test          # 17 个单元测试
 flutter build windows --release
 flutter build apk --release --split-per-abi
 ```
@@ -152,13 +183,43 @@ all welcome. Inside the app, the envelope icon in the toolbar opens a pre-filled
 Helpful details: your device (Windows version / Android model), the app version,
 what you did, what you expected. A screenshot is even better.
 
+### Copyright and usage
+
+Copyright © 2026 LazyAwen. All rights reserved.
+
+**This repository is not open source.** There is no license grant. The code is public on
+GitHub as a backup and for the author's own reference — being visible is not permission.
+Without a LICENSE file, the default under copyright law is "all rights reserved", and
+that is a statement of fact, not extra strictness.
+
+**Please do not**, without written permission:
+
+- republish this project's source after copying or modifying it
+- take this project's code, icons, or docs — in whole or in part — into your own project
+- redistribute repackaged installers, APKs, or any derived build
+- use it commercially
+
+**You are welcome to**:
+
+- download, install, and use it, on as many of your own devices as you like
+- modify the source for your own private use (nobody minds if you don't publish it)
+- write about or make videos about it, linking back to this repository
+- quote short excerpts for technical discussion, with attribution
+
+Report repackaging or misuse to `lazyawen@163.com`.
+
+> An honest caveat: GitHub's Terms of Service let anyone Fork a public repository. No
+> license can switch that off. This notice states the author's position and preserves the
+> right to act on violations; it does not technically prevent a fork. Making the
+> repository private is the only way to stop that completely.
+
 ### Building from source
 
 Requires Flutter 3.47+ (Dart 3.13+), and the Android SDK for the APK target.
 
 ```bash
 flutter pub get
-flutter test          # 15 unit tests
+flutter test          # 17 unit tests
 flutter build windows --release
 flutter build apk --release --split-per-abi
 ```
