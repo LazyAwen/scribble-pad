@@ -70,17 +70,3 @@ Copyright © 2026 LazyAwen. 保留所有权利。
 把代码搬进别的项目、重新打包分发，请先问我一声。
 
 发现被二改或盗用，可以发邮件到 `lazyawen@163.com`。
-
-## 从源码构建
-
-需要 Flutter 3.47+（Dart 3.13+）。打 APK 还要 Android SDK，含 Android 11 以上即可。
-
-```bash
-flutter pub get
-flutter test
-flutter build windows --release
-flutter build apk --release --split-per-abi
-```
-
-构建时踩过的坑、插件 symlink 的绕法、Android 的签名和分区存储处理，都记在
-[docs/BUILDING.md](docs/BUILDING.md) 里。
