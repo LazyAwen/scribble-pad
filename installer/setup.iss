@@ -19,7 +19,7 @@
 #define MyReleaseDir   "..\build\windows\x64\runner\Release"
 
 ; OutputDir is resolved relative to THIS script's directory, so "output"
-; => D:\Work\scribble-pad\installer\output
+; => <repo>\installer\output  (works wherever the repo is checked out)
 #define MyOutputDir    "output"
 
 ; -----------------------------------------------------------------------------

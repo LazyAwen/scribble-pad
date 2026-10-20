@@ -2,7 +2,9 @@
 # symlinks. Flutter requires symlink privileges (Developer Mode / admin) to
 # create the real thing; junctions (mklink /J) need none, and the flutter tool
 # skips any link that already exists, so pre-creating them is enough.
-param([string]$Project = "D:\Work\scribble-pad")
+# The default is derived from $PSScriptRoot (the tool\ folder), so the repo can
+# be moved or renamed without editing anything.
+param([string]$Project = (Split-Path -Parent $PSScriptRoot))
 
 $ErrorActionPreference = "Stop"
 $deps = Join-Path $Project ".flutter-plugins-dependencies"
